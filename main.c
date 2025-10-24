@@ -1,25 +1,24 @@
-#include <X11/Xlib.h>
-#include <unistd.h>
 #include <stdio.h>
 
-int main(void) {
-    Display* dpy = XOpenDisplay(NULL);
-    if (!dpy) { fprintf(stderr, "Cannot open X display\n"); return 1; }
+int main (){
 
-    int scr = DefaultScreen(dpy);
-    Window win = XCreateSimpleWindow(
-        dpy, RootWindow(dpy, scr),
-        100, 100, 800, 600, 1,
-        BlackPixel(dpy, scr), WhitePixel(dpy, scr)
-    );
-    XStoreName(dpy, win, "John McAree");
-    XMapWindow(dpy, win);
-    XFlush(dpy);
+float latitude;
+float longitude;
+char info[80];
 
-    sleep(3);  // keep the window visible briefly
+int started =0;
 
-    XDestroyWindow(dpy, win);
-    XCloseDisplay(dpy);
-    return 0;
+puts("data=[");
+while (scanf("%f,%f,%79[^\n]",&latitude,&longitude,info)==3){
+    if (started)
+        printf(",\n");
+    else
+        started=1;
+    printf("(latitude: %f, longitude %f, info %s)",latitude,longitude,info);
+
 }
+puts("\n]");
+return 0;
+}
+
 
