@@ -18,6 +18,7 @@ int main(int argc, char *argv[]) {
     char *delivery = "";
     int thick = 0;
     int count = 0;
+    int skinny=1;
     int ch;  // getopt returns int
 
     // Parse options: -d <arg> and -t
@@ -29,11 +30,6 @@ int main(int argc, char *argv[]) {
             case 't':
                 thick = 1;
                 break;
-            case ':': // missing option argument
-                fprintf(stderr, "option -%c requires an argument\n", optopt);
-                usage(argv[0]);
-                return 1;
-            case '?':  // unknown option
             default:
                 fprintf(stderr, "unknown option: '-%c'\n", optopt);
                 usage(argv[0]);
@@ -45,8 +41,11 @@ int main(int argc, char *argv[]) {
     argc -= optind;
     argv += optind;
 
+    if (skinny)
+        puts("Thin Crust.");
+
     if (thick)
-        puts("Thick Crust.");
+        puts("Thin Crust.");
 
     if (delivery[0])
         printf("To be delivered %s.\n", delivery);
