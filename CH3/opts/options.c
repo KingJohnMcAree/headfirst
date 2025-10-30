@@ -5,7 +5,8 @@
 /*
 Note the getopt.h file is only needed to clear the erros in the editor
 The programme still runs without it. (See ChatGPT for an explanation on POSIX C)
-run the debugger: gdb --args ./options -t -d home cheese olives
+compile:gcc -g -O0 -Wall -Wextra -o options option.c
+debug: gdb --args ./options -t -d home cheese olives
 
 */
 
@@ -18,7 +19,7 @@ int main(int argc, char *argv[]) {
     char *delivery = "";
     int thick = 0;
     int count = 0;
-    int skinny=1;
+    int skinny=0;
     int ch;  // getopt returns int
 
     // Parse options: -d <arg> and -t
