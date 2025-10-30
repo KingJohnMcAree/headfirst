@@ -15,6 +15,7 @@ static void usage(const char *prog) {
 }
 
 int main(int argc, char *argv[]) {
+    usage(argv[0]);
     int count=0;
     int single = 0;
     int married = 0;
