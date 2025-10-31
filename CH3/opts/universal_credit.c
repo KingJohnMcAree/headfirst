@@ -55,6 +55,7 @@ int main(int argc, char *argv[]) {
     for (count = 0; count < argc; count++)
         puts(argv[count]);
     argv -= optind;  // restore argv
+    argc += optind;  // restore argc
     printf("Restoring argv to point to original first arg: %s\n", argv[0]);
     for (count = 0; count < argc; count++)
         puts(argv[count]);
