@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+float add_with_tax(float f);
 float total=0.0;
 short count=0;
 short tax_percent=6;
@@ -13,7 +14,7 @@ int main(int argc, char *argv[]) {
         printf("Price of an item: ");
     }
     printf("Final total %.2f\n",total);
-    printf("Number of items\n",count);
+    printf("Number of items%hi\n",count);
 
     return 0;
 }
@@ -21,7 +22,7 @@ int main(int argc, char *argv[]) {
 float add_with_tax(float f) {
     float tax_rate = 1 + tax_percent / 100.0;
     //tip
-    total += total + (f * tax_rate);
+    total = total + (f * tax_rate);
     count = count + 1;
     return total;
 }
